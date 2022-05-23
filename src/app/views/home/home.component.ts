@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Photos } from 'src/app/models/photos';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+photos: Photos[] = []
 
+  constructor(httpClient: HttpClient) { 
+    httpClient.get<Photos[]>('http://localhost:3000/flavio/photos').subscribe(photos =>{
+      this.photos = photos
+    })
+  }
+
+
+ 
+  
   ngOnInit(): void {
   }
 

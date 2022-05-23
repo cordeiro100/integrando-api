@@ -1,7 +1,9 @@
-<div class="container">
+
+<div class="container" *ngFor="let photo of photos">
   <div class="row d-flex jsutify-content-center">
-    <div class="card">
-        
-    </div>
-  </div>
+    <div class="card" style="width:20rem;">
+<h2>{{photo.description}}</h2>
+<img [src]="photo.url">
+</div>
+</div>
 </div>
