@@ -7,12 +7,12 @@ import { Photos } from '../models/photos';
 })
 export class PhotosService {
 
-url = 'http://localhost:3000';
+ API = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
-getPhotos():Observable<Photos[]>{
-  return this.http.get<Photos[]>(this.url)
+getPhotos(userName: string){
+  this.http.get<Object[]>(this.API + '/flavio/photos')
 }
 
 }
